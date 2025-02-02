@@ -3,16 +3,7 @@ This part of this document describes the possible errors when parsing GTL code, 
 ## Unrecognized expression < E >
 This error occurs when using a reserved word that does not exist, e.g.
 ```
-return 03
-# Lang errors
-This part of this document describes the possible errors when parsing GTL code, clients should display these errors exactly as described.
-
-As a recommendation (although this specification does not require the following) is that at the beginning of any error the line in which the error occurred should be shown 
-
-## Unrecognized expression < E >
-This error occurs when using a reserved word that does not exist, e.g.
-```
-return 03
+return 3
 # Unrecognized expression return 0
 ```
 ## Invalid expression < E >
