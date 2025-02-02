@@ -4,39 +4,21 @@ Gtl is designed to be simple to understand, most of the GTL stuff is oriented to
 ## Lang items
 
 ### Data types in GTL
-GTL is made up of only 3 data types
+GTL is made up of only 4 data types
 - string:  a character string with dynamic length something like the String data type of rust
 - number: perhaps the simplest type, number is a 32-bit integer.
-- graph: The most complex data type is a combination of the three types, it requires the use of strings and numbers, make sure you have correctly implemented all these data types before the graph.
+- nodes: The most complex data type is a combination of the three types, it requires the use of strings and numbers, make sure you have correctly implemented all these data types before the graph.
+- relations: Relationships between two graphs, these are explained in gtl/graph.md
 these data types are the ones that form the whole GTL and must be implemented by the GTP client and server.
+- graphs: the combination of joining relations and nodes
 
 ### Creating variables
 Variables in GTL cannot be dynamic, they must have a known value and null variables cannot be declared. Variables within GTL are defined with the reserved word **def**
 ```
-def type(number/n, string/s, graph/g):name val
+def type(number/n, string/s, node/n, relation/s):name val
 def n:age 18
 def s:name "juan"
-def g:graph (100, 100) 20 "hello!" # (pos) weight name
 ```
-### Graphs
-The data type of the graphs is the most powerful and the one that needs more explanation, from this data type turns the whole language, when you define a graph the server could save the graph like this
-```rust
-struct Graph<'a> {
-	weight: u32,
-	pos: (u32, u32),	
-	name: String,
-	relations: Vec<&'a Graph<'a>>
-}
-```
-Relationships are connections to other networks that also have more relationships to other networks.
-
-To connect graphs with GTL it can be something like this
-```
-def g:graph (100, 100) 20 "hello!"
-def g:graph2 (150, 100) 2 "hello 2!"
-graph>graph2
-```
-
 
 ## GTL kind header
 GTL has two types for requests and for server responses, these types are taken in different ways depending on the kind variable, this has two possible states 1 (req) 0 (res), when kind is 1 you can send requests to save networks, or to ask the server for the networks that are found, while a request with type 0 is more structured to be simple to process. 
