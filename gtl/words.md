@@ -3,6 +3,7 @@ This is a list with all the reserved words of the language, it is important to c
 | Word| Description | Can be used on |
 |-----------|-----------|-----------|
 |    def       |  define a variable          |     *      | 
-|    set       |   set a env variable        |     only in the header      |
+|    set       |   set a env variable        |    header     |
 |    ret       |  return a variable          |     result     |  
+|    query       |  request data from the server          |     request     |
 
